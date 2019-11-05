@@ -41,3 +41,17 @@ postgres=# SELECT * FROM owmfdw WHERE city='Sapporo' and lang='ja';
  Sapporo | 曇りがち      |   10 | ja
 (1 row)
 ```
+
+## One more query
+You can do it when you want to log the weather.
+
+```
+CREATE TABLE weatherlog (city TEXT, temp FLOAT, logtime TIMESTAMP);
+INSERT INTO weatherlog SELECT city, temp, now() FROM owmfdw WHERE city='Sapporo';
+SELECT * FROM weatherlog;
+ city    | temp  |          logtime           
+---------+-------+----------------------------
+ Sapporo | 10.57 | 2019-11-05 14:31:57.884117
+(1 row)
+```
+
