@@ -3,7 +3,7 @@ PostgreSQL FDW example for Open Weather Map
 
 - This FDW just supports one city query.
 - The default appid in the code is the sample appid which can not query dynamically. (static data results)
-- You need to apply your own appid on Open Weather Map.
+- You need to apply your own appid on [Open Weather Map](https://openweathermap.org/).
 
 ## Installation
 This FDW is based on [Multicorn](https://multicorn.org/) project.
@@ -12,6 +12,8 @@ This FDW is based on [Multicorn](https://multicorn.org/) project.
 
 ```
 # apt install postgresql-11-python3-multicorn
+# git clone https://github.com/ycku/owmfdw.git
+# cd owmfdw
 # cp owmfdw.py /usr/lib/python3/dist-packages/multicorn/
 ```
 
