@@ -43,7 +43,8 @@ postgres=# SELECT * FROM owmfdw WHERE city='Sapporo' and lang='ja';
 ```
 
 ## One more query
-You can do it when you want to log the weather.
+You can do it when you want to log the weather.<br/>
+You are using internal table and foreign table in one query.
 
 ```
 CREATE TABLE weatherlog (city TEXT, temp FLOAT, logtime TIMESTAMP);
