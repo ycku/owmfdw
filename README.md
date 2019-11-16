@@ -1,5 +1,5 @@
 # owmfdw
-PostgreSQL FDW example for Open Weather Map
+A PostgreSQL FDW for Open Weather Map
 
 - This FDW just supports one city query.
 - The default appid in the code is the sample appid which can not query dynamically. (static data results)
