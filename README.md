@@ -8,7 +8,16 @@ A PostgreSQL FDW for Open Weather Map
 ## Installation
 This FDW is based on [Multicorn](https://multicorn.org/) project.
 
-- On Debian bullseye 
+### Ubuntu 20.04 LTS (Focal Fossa)
+
+```
+# apt install postgresql-12-python3-multicorn
+# git clone https://github.com/ycku/owmfdw.git
+# cd owmfdw
+# cp owmfdw.py /usr/lib/python3/dist-packages/multicorn/
+```
+
+### Debian bullseye 
 
 ```
 # apt install postgresql-11-python3-multicorn
@@ -19,12 +28,13 @@ This FDW is based on [Multicorn](https://multicorn.org/) project.
 
 ## on PostgreSQL
 
+- Tested with PostgreSQL 11 and 12
 - Replace appid with your appid
 
 ```
 CREATE EXTENSION multicorn;
 CREATE SERVER owmfdw_srv FOREIGN DATA WRAPPER multicorn OPTIONS ( wrapper 'multicorn.owmfdw.owmfdw'
-                                                                 ,appid='b6907d289e10d714a6e88b30761fae22' );
+                                                                 ,appid 'b6907d289e10d714a6e88b30761fae22' );
 CREATE FOREIGN TABLE owmfdw ( city text, description text, temp float, lang text ) SERVER owmfdw_srv;
 
 SELECT * FROM owmfdw WHERE city='Sapporo';
